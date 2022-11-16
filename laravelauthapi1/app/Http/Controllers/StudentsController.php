@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Validation\Rules;
+use Illuminate\Validation\Rules\Password;
 use App\Models\User;
 use App\Models\Student;
 use Illuminate\Http\Request;
@@ -31,7 +31,8 @@ class StudentsController extends Controller
 
         if($student){
             return response()->json([
-                $student, 'status'=>true
+               'data' => $student,
+               'status'=>true
             ]);  
         }else{
             return response()->json(['status'=>false]);

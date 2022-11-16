@@ -17,17 +17,16 @@ class ModulesResource extends JsonResource
         return [
             'id' => (string)$this->id,
             'type' => 'Module',
-            'attributes' => [
-                'name' => $this->name,
-                'notes' => $this->notes,
-                'created_at' => $this->created_at,
-                'updated_at' => $this->updated_at
-            ],
-            'relationships' => [
-                'id' => (string) $this->course->id,
-                'course name' => $this->course->title,
-                'course description' => $this->course->description 
-            ]
+            'name' => $this->name,
+            'notes' => $this->notes,
+            'youtube_url' => $this->youtube_url,
+            'picture' => $this->pictures,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'Course id' => (string) $this->course->id,
+            'course name' => $this->course->title,
+            'course description' => $this->course->description 
+            
         ];
     }
 }

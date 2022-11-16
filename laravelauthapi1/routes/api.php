@@ -55,7 +55,7 @@ Route::group([
     
 
 ], function () {
-   
+    Route::get('allstudents', [StudentsController::class, 'index']);
     Route::post('adminlogout', [AdminController::class, 'adminlogout'])->name('adminlogout');
     Route::post('adminme', [AdminController::class, 'me']);
 
@@ -75,7 +75,9 @@ Route::group([
     Route::patch('courses/{course}', [CoursesController::class, 'update']);
     Route::delete('courses/{course}', [CoursesController::class, 'destroy']);
     Route::post('/courses/{course}/modules', [ModulesController::class, 'store']);
-    Route::get('/courses/{course}/modules', [ModulesController::class, 'index']);
+   
     Route::patch('/courses/{course}/modules/{module}', [ModulesController::class, 'update']);
 
 });
+
+Route::get('/courses/{course}/modules', [ModulesController::class, 'index']);

@@ -16,7 +16,8 @@ class AdminController extends Controller
 
         if($admin){
             return response()->json([
-                $admin, 'status'=>true
+                'data' => $admin,
+                 'status'=>true
             ]);  
         }else{
             return response()->json(['status'=>false]);
@@ -57,4 +58,5 @@ class AdminController extends Controller
 
         return response()->json(['message' => 'Successfully logged out']);
     }
+
 }
