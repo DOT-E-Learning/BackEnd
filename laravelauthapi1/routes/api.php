@@ -46,6 +46,7 @@ Route::group([
     Route::post('studme', [StudentsController::class, 'me']);
     Route::post('enroll', [EnrollmentController::class, 'enroll'])->name('enrollment');
     Route::get('enrolledcourses', [EnrollmentController::class, 'enrolledCourseIndex'] );
+    Route::put('update/{student}', [StudentsController::class, 'update']);
 
 });
 

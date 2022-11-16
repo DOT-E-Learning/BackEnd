@@ -72,14 +72,18 @@ class StudentsController extends Controller
         return response()->json(['message' => 'Successfully logged out']);
     }
 
-    public function update (StudentsRequest $request, Student $student){
-        $student->update([
-            'firstname' => $request->firstname,
-            'lastname' => $request->lastname,
-            'email' => $request->email  
+    public function update (Request $request, Student $student){
+        $st = auth()->guard('student-api')->user(); 
+        if($student->id == $st->id) {
+        $student->updateOrCreate([
+           'level_of_study' => $request->level_of_study,
+           'field_of_study' => $request->field_of_study,
+           'address' => $request->address,
+           'phone_number' => $request->phone_number
         ]);
        
         return new StudentsResource($student);
+    }
     }
     public function show(Student $student){
         return new StudentsResource($student);
