@@ -59,6 +59,10 @@ Route::group([
     Route::get('allstudents', [StudentsController::class, 'index']);    //displays all students, but must be logged in as an admin to access all students
     Route::post('adminlogout', [AdminController::class, 'adminlogout'])->name('adminlogout');
     Route::post('adminme', [AdminController::class, 'me']);
+    Route::post('instructorregister', [InstructorsController::class, 'instructorregister'])->name('instructorregister');
+    Route::get('instructors', [InstructorsController::class, 'index']);
+    Route::delete('instructordelete/{instructor}', [InstructorsController::class, 'destroy']);
+    Route::put('instructor/{instructor}', [InstructorsController::class, 'update']);
 
 });
 
